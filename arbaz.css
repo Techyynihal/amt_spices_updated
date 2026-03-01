@@ -1,0 +1,242 @@
+/* ===== MODERN PROFESSIONAL LUXURY THEME ===== */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+    --premium-gold: #D4AF37;
+    --gold-hover: #EED789;
+    --deep-black: #050505;
+    --text-white: #FFFFFF;
+    --text-gray: #E2E2E2;
+    --transition-fast: all 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::selection {
+    background-color: var(--premium-gold);
+    color: var(--deep-black);
+}
+
+body {
+    background-color: var(--deep-black);
+    color: var(--text-white);
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* Footer ko bottom par fix rakhne ke liye flexbox */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, h3 {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== HERO SECTION ===== */
+header {
+    /* min-height use karein taaki content badhne par ye shrink na ho */
+    min-height: calc(100vh - 50px); /* 50px footer ke liye chhod diya */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 40px 20px;
+    gap: 25px;
+
+    background: 
+        linear-gradient(to bottom, rgba(5, 5, 5, 0.4) 0%, rgba(5, 5, 5, 0.85) 100%),
+        url('masal_interface.jpeg') center/cover no-repeat;
+    
+    /* Flex-grow taaki ye bachi hui jagah le le */
+    flex-grow: 1;
+}
+
+/* ===== BRAND IMAGE ===== */
+.brand-image img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.8));
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+/* ===== DESCRIPTION ===== */
+.description {
+    font-size: 1.15rem;
+    color: var(--text-gray);
+    max-width: 680px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out 0.2s forwards;
+}
+
+/* ===== BUTTON ===== */
+.action-btn {
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out 0.4s forwards;
+    margin-top: 15px;
+}
+
+.action-btn a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 42px;
+    text-decoration: none;
+    background-color: var(--premium-gold);
+    color: var(--deep-black);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid var(--premium-gold);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+    transition: var(--transition-fast);
+}
+
+.action-btn a:hover {
+    background-color: transparent;
+    color: var(--premium-gold);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+    transform: translateY(-4px);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    /* Padding kam kar di gayi hai */
+    padding: 12px 0; 
+    background: var(--deep-black);
+    text-align: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    /* Footer hamesha bottom par rahe */
+    width: 100%;
+}
+
+footer p {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--text-gray);
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* ================================================= */
+/* ================= RESPONSIVE ==================== */
+/* ================================================= */
+
+/* Large Screens */
+@media (min-width: 1400px) {
+    .description {
+        font-size: 1.25rem;
+        max-width: 750px;
+    }
+}
+
+/* Laptop */
+@media (max-width: 1200px) {
+    .brand-image img {
+        max-width: 380px;
+    }
+    .description {
+        font-size: 1.05rem;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    header {
+        min-height: calc(100vh - 45px);
+        padding: 60px 20px;
+    }
+    .brand-image img {
+        max-width: 320px;
+    }
+    .description {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+    .action-btn a {
+        padding: 12px 32px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    header {
+        /* Mobile par aur better fit ke liye */
+        min-height: calc(100vh - 40px);
+        padding: 40px 15px;
+        gap: 15px;
+    }
+    .brand-image img {
+        max-width: 260px;
+        margin-bottom: 10px;
+    }
+    .description {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    .action-btn {
+        margin-top: 10px;
+    }
+    .action-btn a {
+        padding: 10px 26px;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+    footer {
+        padding: 10px 0;
+    }
+    footer p {
+        font-size: 0.75rem;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    header {
+        padding: 30px 15px;
+        gap: 12px;
+    }
+    .brand-image img {
+        max-width: 200px;
+    }
+    .description {
+        font-size: 0.85rem;
+    }
+    .action-btn a {
+        padding: 8px 20px;
+        font-size: 0.8rem;
+    }
+    footer {
+        padding: 8px 0;
+    }
+    footer p {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+}

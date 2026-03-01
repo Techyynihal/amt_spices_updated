@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruities</title>
+    <link rel="stylesheet" href="fruities_sec.css">
+</head>
+
+<body>
+
+    <h1>Fruities</h1>
+
+    <div class="grid">
+        <div class="card">
+            <img src="sping.jpeg" alt="Sping" class="product-img">
+            <p>Sping</p>
+        </div>
+
+        <div class="card">
+            <img src="orange.jpeg" alt="Orange" class="product-img">
+            <p>Orange</p>
+        </div>
+
+        <div class="card">
+            <img src="litchi.jpeg" alt="Litchi" class="product-img">
+            <p>Litchi</p>
+        </div>
+
+        <div class="card">
+            <img src="pineapple.jpeg" alt="Pineapple" class="product-img">
+            <p>Pineapple</p>
+        </div>
+
+        <div class="card">
+            <img src="guava.jpeg" alt="Guava" class="product-img">
+            <p>Guava</p>
+        </div>
+
+        <div class="card">
+            <img src="cola.jpeg" alt="Cola" class="product-img">
+            <p>Cola</p>
+        </div>
+
+        <div class="card">
+            <img src="blueberries.jpeg" alt="Blueberries" class="product-img">
+            <p>Blueberries</p>
+        </div>
+
+        <div class="card">
+            <img src="mango.jpeg" alt="Mango" class="product-img">
+            <p>Mango</p>
+        </div>
+
+        <div class="card">
+            <img src="jeera_masala.jpeg" alt="Jeera Masala" class="product-img">
+            <p>Jeera Masala</p>
+        </div>
+
+        <div class="card">
+            <img src="kala_khatta.jpeg" alt="Kala Khatta" class="product-img">
+            <p>Kala Khatta</p>
+        </div>
+
+        <div class="card">
+            <img src="lime.jpeg" alt="Lime" class="product-img">
+            <p>Lime</p>
+        </div>
+
+        <div class="card">
+            <img src="strawberry.jpeg" alt="Strawberry" class="product-img">
+            <p>Strawberry</p>
+        </div>
+
+        <div class="card">
+            <img src="apple.jpeg" alt="Apple" class="product-img">
+            <p>Apple</p>
+        </div>
+    </div>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Full Image">
+    </div>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.lightbox-close');
+        const productImages = document.querySelectorAll('.product-img');
+
+        // Har photo par click karne par popup open karo
+        productImages.forEach(img => {
+            img.addEventListener('click', function() {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = this.src; 
+            });
+        });
+
+        // Close button 'X' pe click karne par popup band karo
+        closeBtn.addEventListener('click', function() {
+            lightbox.style.display = 'none';
+        });
+
+        // Background click par close karo
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dry Fruits - AMT</title>
+    <link rel="stylesheet" href="drufruit_section.css">
+</head>
+
+<body>
+
+    <h1>Dry Fruits</h1>
+
+    <div class="grid">
+        <div class="card">
+            <img src="badam.jpeg" alt="Badam" class="product-img">
+            <p>Badam</p>
+        </div>
+
+        <div class="card">
+            <img src="kaju.jpeg" alt="Kaju" class="product-img">
+            <p>Kaju</p>
+        </div>
+
+        <div class="card">
+            <img src="manuka.jpeg" alt="Manuka" class="product-img">
+            <p>Manuka</p>
+        </div>
+
+        <div class="card">
+            <img src="pista.jpeg" alt="Pista" class="product-img">
+            <p>Pista</p>
+        </div>
+
+        <div class="card">
+            <img src="khajoor.jpeg" alt="Khajoor" class="product-img">
+            <p>Khajoor</p>
+        </div>
+
+        <div class="card">
+            <img src="charoli.jpeg" alt="Charoli" class="product-img">
+            <p>Charoli</p>
+        </div>
+    </div>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Full Image">
+    </div>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.lightbox-close');
+        const productImages = document.querySelectorAll('.product-img');
+
+        // Har photo par click karne par popup open karo
+        productImages.forEach(img => {
+            img.addEventListener('click', function() {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = this.src; // Jo photo click hui hai, use set karo
+            });
+        });
+
+        // Close button 'X' pe click karne par popup band karo
+        closeBtn.addEventListener('click', function() {
+            lightbox.style.display = 'none';
+        });
+
+        // Agar koi photo ke bahar (dark background pe) click kare, toh bhi band ho jaye
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>

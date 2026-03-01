@@ -1,0 +1,184 @@
+/* ===== Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== Body ===== */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    /* Aapka original purple background */
+    background: linear-gradient(135deg, #8e2de2, #4a00e0);
+    padding: 70px 20px;
+    min-height: 100vh;
+}
+
+/* ===== Heading ===== */
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 70px;
+    letter-spacing: 4px;
+    position: relative;
+    font-weight: 600;
+}
+
+/* Decorative Gradient Underline */
+h1::after {
+    content: "";
+    width: 160px;
+    height: 4px;
+    background: linear-gradient(to right, #ffffff, #dcd6f7);
+    display: block;
+    margin: 18px auto 0;
+    border-radius: 6px;
+}
+
+/* ===== Grid Layout ===== */
+.grid {
+    display: grid;
+    /* Yeh auto-fit line har device par cards ko apne aap adjust karti hai */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+    max-width: 1200px; /* Thoda bada kiya taki badi PC screen par acha dikhe */
+    margin: auto;
+    width: 100%;
+}
+
+/* ===== Card ===== */
+.card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 22px;
+    text-align: center;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover Lift */
+.card:hover {
+    transform: translateY(-14px);
+    box-shadow: 0 28px 70px rgba(0,0,0,0.6);
+}
+
+/* Image */
+.card img {
+    width: 100%;
+    height: 240px;
+    object-fit: contain; 
+    border-radius: 20px;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.05); /* Optional: Thoda depth dene ke liye */
+}
+
+/* Image Zoom */
+.card:hover img {
+    transform: scale(1.1);
+}
+
+/* Text */
+.card p {
+    margin-top: 18px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   Lightbox (Popup) CSS for Full Image View
+   ========================================= */
+.lightbox {
+    display: none; /* JS isko handle karega */
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.8);
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.lightbox-close:hover {
+    color: #dcd6f7; /* Hover pe halka purple/white tone */
+}
+
+/* ===== Responsive Media Queries ===== */
+
+/* For Tablets and smaller laptops */
+@media (max-width: 1024px) {
+    body {
+        padding: 50px 20px;
+    }
+    .grid {
+        gap: 30px;
+    }
+}
+
+/* For Mobile Phones (Portrait & Landscape) */
+@media (max-width: 768px) {
+    body {
+        padding: 30px 15px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+
+    /* Mobile pe 1 single column card dikhane ke liye */
+    .grid {
+        grid-template-columns: 1fr; 
+        gap: 25px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .card img {
+        height: 220px;
+    }
+    
+    .lightbox-close {
+        top: 15px;
+        right: 25px;
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .card img {
+        height: 200px;
+    }
+}
